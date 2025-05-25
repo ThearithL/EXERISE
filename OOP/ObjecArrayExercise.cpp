@@ -130,6 +130,7 @@ int main(){
                 do{
                 cout<<"1.Search For ID."<<endl;
                 cout<<"2.Search For Title."<<endl;
+                cout<<"0.Exit."<<endl;
                 cout<<"Enter For Search: ";cin>>choose;
                 switch(choose){
                 case 1: {
