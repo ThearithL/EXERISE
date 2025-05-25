@@ -233,7 +233,7 @@ int main(){
                 cout<<"Add size Book : ";cin>>add_size_book;
                         for(i=size_of_book;i<size_of_book+add_size_book;i++){
                             cout<<"Enter New ID: ";cin>>id;
-                            cout<<"Enter New   : ";cin>>title;
+                            cout<<"Enter New Title: ";cin>>title;
                             cout<<"Enter New Public: ";cin>>Public_book;
                             cout<<"Enter New Author: ";cin>>author;
                             cout<<"Enter New Price: ";cin>>price;
