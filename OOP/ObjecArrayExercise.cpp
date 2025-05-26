@@ -118,12 +118,12 @@ int main(){
                         <<setw(13)<<" Quantity "<<endl;
     cout<<"|=============================================================================|"<<endl;  
     cout<<"|=============================================================================|"<<endl;
-                    cout<<setw(8)<<obj[i].getId()
+                    cout<<setw(9)<<obj[i].getId()
                         <<setw(10)<<obj[i].getTitle()
-                        <<setw(13)<<obj[i].getPublic_book()
-                        <<setw(14)<<obj[i].getAuthor()
-                        <<setw(12)<<obj[i].getPrice()
-                        <<setw(13)<<obj[i].getQty()<<endl;
+                        <<setw(14)<<obj[i].getPublic_book()
+                        <<setw(13)<<obj[i].getAuthor()
+                        <<setw(13)<<obj[i].getPrice()
+                        <<setw(12)<<obj[i].getQty()<<endl;
     cout<<"|=============================================================================|"<<endl;
     cout<<"|=============================================================================|"<<endl;    
             }
@@ -149,8 +149,8 @@ int main(){
                                     <<setw(10)<<obj[i].getTitle()
                                     <<setw(13)<<obj[i].getAuthor()
                                     <<setw(14)<<obj[i].getPrice()
-                                    <<setw(13)<<obj[i].getQty()
-                                    <<setw(13)<<obj[i].getPublic_book()<<endl;        
+                                    <<setw(12)<<obj[i].getQty()
+                                    <<setw(14)<<obj[i].getPublic_book()<<endl;        
                         }
                     }
                 break;
@@ -161,16 +161,16 @@ int main(){
                             if(obj[i].getTitle()==Search_title){
                                 cout<<setw(10)<<"|ID"
                                     <<setw(12)<<"|Title"
-                                    <<setw(12)<<"|Author"
-                                    <<setw(12)<<"|Price"
+                                    <<setw(13)<<"|Author"
+                                    <<setw(14)<<"|Price"
                                     <<setw(12)<<"|Qty"
-                                    <<setw(12)<<"|PDT"<<endl;
-                                cout<<setw(12)<<obj[i].getId()
-                                    <<setw(12)<<obj[i].getTitle()
-                                    <<setw(12)<<obj[i].getAuthor()
-                                    <<setw(12)<<obj[i].getPrice()
+                                    <<setw(13)<<"|PDT"<<endl;
+                                cout<<setw(10)<<obj[i].getId()
+                                    <<setw(10)<<obj[i].getTitle()
+                                    <<setw(13)<<obj[i].getAuthor()
+                                    <<setw(14)<<obj[i].getPrice()
                                     <<setw(12)<<obj[i].getQty()
-                                    <<setw(12)<<obj[i].getPublic_book()<<endl;        
+                                    <<setw(13)<<obj[i].getPublic_book()<<endl;        
                         }
                     }
             break;
