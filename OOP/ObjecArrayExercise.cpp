@@ -2,6 +2,7 @@
 #include<iomanip>
 using namespace std;
 #define BLUE  "\033[34m"
+#define GREEN "\033[32m"
 #define RESET "\033[0m"
 class Book{
     private:
@@ -58,7 +59,7 @@ int main(){
     Book Btmp; 
     do
     {
-        cout<<BLUE<<"=============================================================="<<endl;
+        cout<<GREEN<<"=============================================================="<<endl;
         cout<<"| 1.Create the Detail book.                                   |"<<endl;
         cout<<"|-------------------------------------------------------------|"<<endl;
         cout<<"| 2.Display all Detail book.                                  |"<<endl;
@@ -152,7 +153,6 @@ int main(){
                                     <<setw(13)<<obj[i].getPublic_book()<<endl;        
                         }
                     }
-                system("pause");
                 break;
             }
                 case 2: {
@@ -173,10 +173,11 @@ int main(){
                                     <<setw(12)<<obj[i].getPublic_book()<<endl;        
                         }
                     }
-            system("pause");
             break;
             }
         }
+      system("pause");
+       break;             
 }
             
             case 4 :
