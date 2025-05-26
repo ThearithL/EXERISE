@@ -9,7 +9,7 @@ class Book{
     string title,Public_book,author;
     float price;
     public:
-    // defaul constuctor
+    //constuctor
     Book(){
         id=0;
         title="Unknow";
@@ -18,7 +18,6 @@ class Book{
         qty=0;
         price=0;
     }
-    //constructor with parameter
     Book(int i,string t,string pu,string a,float p,float q){
         id=i;
         title=t;
@@ -27,7 +26,7 @@ class Book{
         price=p;
         qty=q;
     }
-    //Getter
+  
     int getId() {
         return id;
     }
@@ -46,11 +45,13 @@ class Book{
     int getQty() {
         return qty;
     }
+    
+
+   
 };
 int main(){
-    int choose,size_of_book,option,add_size_book,update_id,delete_id,new_id,new_qty;
+    int choose,size_of_book,option,add_size_book,update_id,delete_id,new_id,new_qty,id,qty,answer,i,j,Search_id,add_id,add_qty,add_price;
     Book obj[100];
-    int id,qty,answer,i,j,Search_id,add_id,add_qty,add_price;
     string title,Public_book,author,new_Public_book,new_title,new_author,add_Public_book,add_author,Search_title;
     float price,new_price;
     bool check;
@@ -114,41 +115,41 @@ int main(){
                         <<setw(14)<<" Author "
                         <<setw(12)<<" Price "
                         <<setw(13)<<" Quantity "<<endl;
+    cout<<"|=============================================================================|"<<endl;  
     cout<<"|=============================================================================|"<<endl;
-                    cout<<setw(10)<<obj[i].getId()
+                    cout<<setw(8)<<obj[i].getId()
                         <<setw(10)<<obj[i].getTitle()
                         <<setw(13)<<obj[i].getPublic_book()
                         <<setw(14)<<obj[i].getAuthor()
                         <<setw(12)<<obj[i].getPrice()
                         <<setw(13)<<obj[i].getQty()<<endl;
-    cout<<"|=============================================================================|"<<endl;  
-                }
+    cout<<"|=============================================================================|"<<endl;
+    cout<<"|=============================================================================|"<<endl;    
+            }
                 system("pause");
                 break;
             }
               case 3:{
-                do{
                 cout<<"1.Search For ID."<<endl;
                 cout<<"2.Search For Title."<<endl;
-                cout<<"0.Exit."<<endl;
                 cout<<"Enter For Search: ";cin>>choose;
                 switch(choose){
                 case 1: {
                 cout<<"Enter Id for search : ";cin>>Search_id;
                         for(int i=0;i<size_of_book;i++){
                             if(obj[i].getId()==Search_id){
-                                cout<<setw(12)<<"|ID"
+                                cout<<setw(10)<<"|ID"
                                     <<setw(12)<<"|Title"
-                                    <<setw(12)<<"|Author"
-                                    <<setw(12)<<"|Price"
+                                    <<setw(13)<<"|Author"
+                                    <<setw(14)<<"|Price"
                                     <<setw(12)<<"|Qty"
-                                    <<setw(12)<<"|PDT"<<endl;
-                                cout<<setw(12)<<obj[i].getId()
-                                    <<setw(12)<<obj[i].getTitle()
-                                    <<setw(12)<<obj[i].getAuthor()
-                                    <<setw(12)<<obj[i].getPrice()
-                                    <<setw(12)<<obj[i].getQty()
-                                    <<setw(12)<<obj[i].getPublic_book()<<endl;        
+                                    <<setw(13)<<"|PDT"<<endl;
+                                cout<<setw(10)<<obj[i].getId()
+                                    <<setw(10)<<obj[i].getTitle()
+                                    <<setw(13)<<obj[i].getAuthor()
+                                    <<setw(14)<<obj[i].getPrice()
+                                    <<setw(13)<<obj[i].getQty()
+                                    <<setw(13)<<obj[i].getPublic_book()<<endl;        
                         }
                     }
                 system("pause");
@@ -158,7 +159,7 @@ int main(){
                 cout<<"Enter Title for search : ";cin.ignore();getline(cin,Search_title);
                         for(int i=0;i<size_of_book;i++){
                             if(obj[i].getTitle()==Search_title){
-                                cout<<setw(12)<<"|ID"
+                                cout<<setw(10)<<"|ID"
                                     <<setw(12)<<"|Title"
                                     <<setw(12)<<"|Author"
                                     <<setw(12)<<"|Price"
@@ -172,12 +173,10 @@ int main(){
                                     <<setw(12)<<obj[i].getPublic_book()<<endl;        
                         }
                     }
-
-                system("pause");
-                break;
+            system("pause");
+            break;
             }
         }
-    } while(choose!=0);
 }
             
             case 4 :
@@ -233,7 +232,7 @@ int main(){
                 cout<<"Add size Book : ";cin>>add_size_book;
                         for(i=size_of_book;i<size_of_book+add_size_book;i++){
                             cout<<"Enter New ID: ";cin>>id;
-                            cout<<"Enter New Title: ";cin>>title;
+                            cout<<"Enter New  Title : ";cin>>title;
                             cout<<"Enter New Public: ";cin>>Public_book;
                             cout<<"Enter New Author: ";cin>>author;
                             cout<<"Enter New Price: ";cin>>price;
