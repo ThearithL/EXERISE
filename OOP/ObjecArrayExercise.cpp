@@ -2,7 +2,6 @@
 #include<iomanip>
 using namespace std;
 #define BLUE  "\033[34m"
-#define GREEN "\033[32m"
 #define RESET "\033[0m"
 class Book{
     private:
@@ -51,7 +50,7 @@ class Book{
    
 };
 int main(){
-    int choose,size_of_book,option,add_size_book,update_id,delete_id,new_id,new_qty,id,qty,answer,i,j,Search_id,add_id,add_qty,add_price;
+    int issearch,choose,size_of_book,option,add_size_book,update_id,delete_id,new_id,new_qty,id,qty,answer,i,j,Search_id,add_id,add_qty,add_price;
     Book obj[100];
     string title,Public_book,author,new_Public_book,new_title,new_author,add_Public_book,add_author,Search_title;
     float price,new_price;
@@ -59,7 +58,7 @@ int main(){
     Book Btmp; 
     do
     {
-        cout<<GREEN<<"=============================================================="<<endl;
+        cout<<BLUE<<"=============================================================="<<endl;
         cout<<"| 1.Create the Detail book.                                   |"<<endl;
         cout<<"|-------------------------------------------------------------|"<<endl;
         cout<<"| 2.Display all Detail book.                                  |"<<endl;
@@ -118,12 +117,12 @@ int main(){
                         <<setw(13)<<" Quantity "<<endl;
     cout<<"|=============================================================================|"<<endl;  
     cout<<"|=============================================================================|"<<endl;
-                    cout<<setw(9)<<obj[i].getId()
+                    cout<<setw(8)<<obj[i].getId()
                         <<setw(10)<<obj[i].getTitle()
                         <<setw(14)<<obj[i].getPublic_book()
-                        <<setw(13)<<obj[i].getAuthor()
-                        <<setw(13)<<obj[i].getPrice()
-                        <<setw(12)<<obj[i].getQty()<<endl;
+                        <<setw(14)<<obj[i].getAuthor()
+                        <<setw(12)<<obj[i].getPrice()
+                        <<setw(13)<<obj[i].getQty()<<endl;
     cout<<"|=============================================================================|"<<endl;
     cout<<"|=============================================================================|"<<endl;    
             }
@@ -131,12 +130,15 @@ int main(){
                 break;
             }
               case 3:{
+                do{
                 cout<<"1.Search For ID."<<endl;
                 cout<<"2.Search For Title."<<endl;
                 cout<<"Enter For Search: ";cin>>choose;
                 switch(choose){
                 case 1: {
                 cout<<"Enter Id for search : ";cin>>Search_id;
+                        issearch=0;
+                        int count=0;
                         for(int i=0;i<size_of_book;i++){
                             if(obj[i].getId()==Search_id){
                                 cout<<setw(10)<<"|ID"
@@ -149,10 +151,17 @@ int main(){
                                     <<setw(10)<<obj[i].getTitle()
                                     <<setw(13)<<obj[i].getAuthor()
                                     <<setw(14)<<obj[i].getPrice()
-                                    <<setw(12)<<obj[i].getQty()
-                                    <<setw(14)<<obj[i].getPublic_book()<<endl;        
+                                    <<setw(13)<<obj[i].getQty()
+                                    <<setw(13)<<obj[i].getPublic_book()<<endl;
+                                    issearch=1;
+                                    cout<<"---------Search Complete----------"<<endl;      
+                            }
+                            count++;
                         }
-                    }
+                        cout<<"Count: "<<count<<endl;
+                        if(issearch==0){
+                            cout<<"-----------Search Not Found!-----------"<<endl;
+                        }
                 break;
             }
                 case 2: {
@@ -161,23 +170,23 @@ int main(){
                             if(obj[i].getTitle()==Search_title){
                                 cout<<setw(10)<<"|ID"
                                     <<setw(12)<<"|Title"
-                                    <<setw(13)<<"|Author"
-                                    <<setw(14)<<"|Price"
+                                    <<setw(12)<<"|Author"
+                                    <<setw(12)<<"|Price"
                                     <<setw(12)<<"|Qty"
-                                    <<setw(13)<<"|PDT"<<endl;
-                                cout<<setw(10)<<obj[i].getId()
-                                    <<setw(10)<<obj[i].getTitle()
-                                    <<setw(13)<<obj[i].getAuthor()
-                                    <<setw(14)<<obj[i].getPrice()
+                                    <<setw(12)<<"|PDT"<<endl;
+                                cout<<setw(12)<<obj[i].getId()
+                                    <<setw(12)<<obj[i].getTitle()
+                                    <<setw(12)<<obj[i].getAuthor()
+                                    <<setw(12)<<obj[i].getPrice()
                                     <<setw(12)<<obj[i].getQty()
-                                    <<setw(13)<<obj[i].getPublic_book()<<endl;        
+                                    <<setw(12)<<obj[i].getPublic_book()<<endl;        
                         }
                     }
             break;
             }
         }
-      system("pause");
-       break;             
+    }while(choose!=0);
+    break;
 }
             
             case 4 :
@@ -241,7 +250,7 @@ int main(){
                             obj[i]=Book(id,title,Public_book,author,price,qty);
 
                         }
-                        size_of_book+=add_size_book;
+                    size_of_book+=add_size_book;
                     system("pause");
                     break;
             }
@@ -308,7 +317,7 @@ int main(){
                                 check =false;
                                 for(int i=0;i<size_of_book;i++){
                                     for( j=i+1;j<size_of_book;j++){
-                                        if(obj[i].getId()>obj[j].getId()){
+                                        if(obj[i].getId()<obj[j].getId()){
                                             Btmp=obj[i];
                                             obj[i]=obj[j];
                                             obj[j]=Btmp;
@@ -326,7 +335,7 @@ int main(){
                                 check =false;
                                 for(int i=0;i<size_of_book;i++){
                                     for( j=i+1;j<size_of_book;j++){
-                                        if(obj[i].getId()<obj[j].getId()){
+                                        if(obj[i].getId()>obj[j].getId()){
                                             Btmp=obj[i];
                                             obj[i]=obj[j];
                                             obj[j]=Btmp;
